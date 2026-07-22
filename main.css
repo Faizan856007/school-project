@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  cursor: none; /* Hide default cursor to enable custom floating cursor */
+}
+body {
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+/* Custom Cursor Ring */
+#custom-cursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--primary);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9999;
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+.cursor-hover #custom-cursor {
+  width: 45px;
+  height: 45px;
+  background-color: rgba(111, 54, 255, 0.1);
+  border-color: var(--gold);
+  box-shadow: 0 0 15px var(--gold-glow);
+}
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+/* Glassmorphic Navbar */
+.navbar-glass {
+  background: rgba(6, 7, 19, 0.6);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: var(--glass-border);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+.navbar-brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-primary) !important;
+  letter-spacing: 1px;
+}
+.navbar-brand span {
+  color: var(--gold);
+}
+.nav-link {
+  color: var(--text-secondary) !important;
+  font-weight: 500;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--text-primary) !important;
+  text-shadow: 0 0 8px var(--primary-glow);
+}
+/* Glowing Button */
+.btn-glow {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: #FFF !important;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 30px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px var(--primary-glow);
+  transition: all 0.3s;
+}
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -50%; width: 200%; height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  transition: 0.75s;
+}
+.btn-glow:hover::after {
+  left: 125%;
+}
+.btn-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--secondary-glow);
+}
+/* Interactive Hero Page */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  overflow: hidden;
+}
+/* Three.js Canvas holder */
+#three-canvas-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  z-index: 1;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #FFF 30%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+}
+/* Aurora Backdrop Floating Circles */
+.aurora-circle-1 {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--purple-aurora) 0%, transparent 70%);
+  top: -200px;
+  left: -200px;
+  z-index: 0;
+  animation: floatCircle 20s infinite alternate;
+}
+.aurora-circle-2 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 98, 255, 0.1) 0%, transparent 70%);
+  bottom: -200px;
+  right: -100px;
+  z-index: 0;
+  animation: floatCircle 25s infinite alternate-reverse;
+}
+@keyframes floatCircle {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(100px, 50px) scale(1.2); }
+}
+/* Glassmorphic Info Cards */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: var(--glass-border);
+  border-radius: var(--glass-radius);
+  padding: 30px;
+  box-shadow: var(--glass-shadow);
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.glass-card:hover {
+  transform: translateY(-8px);
+  background: var(--bg-card-hover);
+  border-color: var(--border-glass-hover);
+  box-shadow: 0 12px 40px rgba(111, 54, 255, 0.15);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+}
+/* Admission Forms Layout styling */
+.admission-form-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.form-control, .form-select {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 12px;
+  transition: all 0.3s;
+}
+.form-control:focus, .form-select:focus {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--primary);
+  box-shadow: 0 0 10px var(--primary-glow);
+  color: var(--text-primary);
+}
+/* Footer structure */
+.footer {
+  background: var(--bg-dark);
+  border-top: var(--glass-border);
+  padding: 60px 0 30px 0;
+  position: relative;
+  z-index: 2;
+}
+.footer-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.3s;
+  display: block;
+  margin-bottom: 10px;
+}
+.footer-link:hover {
+  color: var(--gold);
+}
+/* Theme Toggle Button */
+#theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border-glass);
+  color: var(--text-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+#theme-toggle:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
