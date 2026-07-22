@@ -20,3 +20,4 @@ require_once APPROOT . '/config/routes.php';
 registerRoutes($app);
 // Dispatch requests
 $app->run();
+?>
