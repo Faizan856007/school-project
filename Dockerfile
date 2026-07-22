@@ -1,7 +1,3 @@
-FROM php:8.2-apache
-
-COPY . /var/www/html/
-
-RUN docker-php-ext-install mysqli pdo pdo_mysql
-
-EXPOSE 80
+RUN sed -ri -e 's!/var/www/html!/var/www/html/public!g' \
+/etc/apache2/sites-available/*.conf \
+/etc/apache2/apache2.conf
