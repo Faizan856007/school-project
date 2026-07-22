@@ -16,3 +16,4 @@ define('SITENAME', 'Aether Academy');
 
 // Security Key
 define('APP_KEY', 'AetherSuperSecureUniqueSecretKey123_#$');
+?>
